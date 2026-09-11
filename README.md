@@ -8,6 +8,20 @@ This project investigates factors associated with mercury concentration in fish 
 
 The analysis was performed in Python using a dataset containing approximately 7,000 fish observations from 141 Alberta waterbodies.
 
+## Exploratory Data Analysis
+
+### Feature Correlation Matrix
+
+The correlation matrix highlights relationships between mercury concentration and the numerical features used in the analysis.
+
+<img src="images/feature-correlation-matrix.png" width="600">
+
+### Mercury Accumulation with Fish Age
+
+Mercury concentration generally increases with fish age, although substantial variation exists across individual observations.
+
+<img src="images/mercury-accumulation-with-fish-age.png" width="600">
+
 ## Analysis
 
 The project includes:
@@ -20,7 +34,7 @@ The project includes:
 - Linear regression modeling
 - Random Forest modeling
 - LightGBM modeling
-- Model comparison using RMSE
+- Model comparison using RMSE and R²
 - Residual and prediction-error analysis
 
 ## Dataset
@@ -57,12 +71,25 @@ Care was taken during model validation to avoid data leakage when calculating wa
 Multiple approaches were evaluated, including:
 
 - Linear Regression
+- Feature-enhanced Linear Regression
 - Random Forest
 - LightGBM
 
-Five-fold cross-validation was used to compare model performance. Model evaluation included RMSE, actual-versus-predicted comparisons, and residual analysis.
+Five-fold cross-validation was used to compare model performance. Evaluation included RMSE, R², actual-versus-predicted comparisons, and residual analysis.
 
 The analysis also examined model performance across different fish characteristics and geographic regions, including the tendency of predictive models to underpredict observations with particularly high mercury concentrations.
+
+## Model Results
+
+The final model comparison showed that the tree-based models substantially improved predictive performance over the linear regression approaches. LightGBM produced the strongest overall results.
+
+<img src="images/final-model-comparison.png" width="850">
+
+### Random Forest vs. LightGBM
+
+Random Forest and LightGBM were compared in greater detail using RMSE, actual-versus-predicted values, residual distributions, and residual-versus-predicted analysis.
+
+<img src="images/forest-vs-lightgbm.png" width="850">
 
 ## Technologies
 
@@ -75,12 +102,14 @@ The analysis also examined model performance across different fish characteristi
 - matplotlib
 - seaborn
 - Jupyter Notebook
+- Git / GitHub
 
 ## Repository Contents
 
 - `FishMercury_final.ipynb` — complete analysis and modeling notebook
 - `hg-in-fish-ah-1997-2021_march2024xlsx.xlsx` — source dataset
 - `hg-in-fish-column-descriptions.xlsx` — dataset column descriptions
+- `images/` — selected visualizations used in the README
 
 ## Author
 
